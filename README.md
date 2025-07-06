@@ -1,4 +1,4 @@
 # park-buddy
 Parking availability visualization tool
 
-Made by Ashley Kim
+Made by Jisoo Kim
