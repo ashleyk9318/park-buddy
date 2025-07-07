@@ -31,4 +31,10 @@ def get_parking_spots_by_status(floor_id: str, status: SpotStatus) -> list[Parki
         to_ret.append(ParkingSpot(parking_spot.spot_id, parking_spot.floor_id, parking_spot.spot_number, parking_spot.status, parking_spot.last_update_timestamp))
     return to_ret
 
+def update_parking_spot_status(floor_id: str, spot_id: str, status: SpotStatus):
+    session = get_session()
+    query = "UPDATE parking_spots SET status = %s WHERE spot_id = %s AND floor_id = %s"
+    session.execute(query, (status.value, spot_id, floor_id))
 
+
+    # UPDATE <tablename> SET <assignment> ( ',' <assignment> )* WHERE <where-clause>
